@@ -1,0 +1,33 @@
+# Directorio de compilación de Maven
+/target/
+
+# Archivos de la IDE (IntelliJ, Eclipse, VS Code)
+.idea/
+.project
+.classpath
+.settings/
+.metadata/
+.vscode/
+
+# Archivos de Maven
+.mvn/wrapper/maven-wrapper.jar
+/bin/
+
+# Archivos de registro
+*.log
+*.tmp
+
+# Ficheros del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ficheros de la aplicación
+*.jar
+*.war
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+build/

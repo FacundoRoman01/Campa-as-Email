@@ -3,6 +3,7 @@ package com.campana.email.email_campaigner_api.dto;
 import java.time.LocalDateTime;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class CampaignDto {
@@ -20,11 +21,16 @@ public class CampaignDto {
     private LocalDateTime scheduledAt;
     private LocalDateTime sentAt;
     private Long createdById; // Para saber qué usuario la creó
+    
+    
+    //Se agrega el ID de la lista de suscriptores
+    @NotNull(message = "Debe especificar un subscriberListId")
+    private Long subscriberListId;
 
     public CampaignDto() {
     }
 
-    public CampaignDto(Long id, String name, String description, String status, LocalDateTime scheduledAt, LocalDateTime sentAt, Long createdById) {
+    public CampaignDto(Long id, String name, String description, String status, LocalDateTime scheduledAt, LocalDateTime sentAt, Long createdById, Long subscriberListId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -32,6 +38,7 @@ public class CampaignDto {
         this.scheduledAt = scheduledAt;
         this.sentAt = sentAt;
         this.createdById = createdById;
+        this.subscriberListId = subscriberListId;
     }
 
     // Getters y Setters
@@ -90,4 +97,13 @@ public class CampaignDto {
     public void setCreatedById(Long createdById) {
         this.createdById = createdById;
     }
+    
+    public Long getSubscriberListId() {
+        return subscriberListId;
+    }
+    
+    public void setSubscriberListId(Long subscriberListId) {
+        this.subscriberListId = subscriberListId;
+    }
+    
 }

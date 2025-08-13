@@ -28,17 +28,26 @@ public class Campaign {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User createdBy; // Usuario que creó la campaña
+    
+    
+    //Many-to-One con SubscriberList Una campaña pertenece a una lista
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "listas_suscriptores_id", nullable = false)
+    private SubscriberList subscriberList;
+    
+    
 
     // Constructors
     public Campaign() {
     }
 
-    public Campaign(String name, String description, CampaignStatus status, LocalDateTime scheduledAt, User createdBy) {
+    public Campaign(String name, String description, CampaignStatus status, LocalDateTime scheduledAt, User createdBy, SubscriberList subscriberList) {
         this.name = name;
         this.description = description;
         this.status = status;
         this.scheduledAt = scheduledAt;
         this.createdBy = createdBy;
+        this.subscriberList = subscriberList;
     }
 
     // Getters y Setters
@@ -97,4 +106,13 @@ public class Campaign {
     public void setCreatedBy(User createdBy) {
         this.createdBy = createdBy;
     }
+    
+    public SubscriberList getSubscriberList() {
+        return subscriberList;
+    }
+
+    public void setSubscriberList(SubscriberList subscriberList) {
+        this.subscriberList = subscriberList;
+    }
+    
 }
